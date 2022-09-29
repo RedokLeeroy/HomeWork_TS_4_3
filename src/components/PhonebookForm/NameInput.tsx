@@ -1,6 +1,6 @@
-import PropTypes from "prop-types"
 import s from "./Input.module.css"
-export const NameInput = ({name, value, func}) => {
+import React from "react"
+export const NameInput = ({name, value, func}: {name:string, value:string, func: React.ChangeEventHandler<HTMLInputElement>}): JSX.Element => {
     return <label className={s.label}>Name<input
   className={s.input}
   type="text"
@@ -11,10 +11,4 @@ export const NameInput = ({name, value, func}) => {
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
   required
 /></label>
-}
-
-NameInput.propTypes = {
-    name:  PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    func: PropTypes.func.isRequired
 }

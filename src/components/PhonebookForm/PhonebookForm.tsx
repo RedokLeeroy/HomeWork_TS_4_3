@@ -1,23 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { IData } from "../../interfaces";
 import { FormSubmit } from "./FormSubmit";
 import { NameInput } from "./NameInput";
 import { PhoneInput } from "./PhoneInput";
-import PropTypes from "prop-types"
 
 
 
-export const PhonebookForm = ({onSubmit}) => {
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
+export const PhonebookForm = ({onSubmit}: {onSubmit : (arg: Partial<IData>)=>void}): JSX.Element => {
+    const [name, setName] = useState<string>("")
+    const [phone, setPhone] = useState<string>("")
     
-    const handSubmit= (event) => {
+    const handSubmit= (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         onSubmit({name, phone})
         setName("")
         setPhone("")
     }
 
-    const handlerInput = (event) => {
+    const handlerInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target
         if (name === "name") {
         setName(value)
@@ -34,7 +34,3 @@ export const PhonebookForm = ({onSubmit}) => {
         </form>
     )
 }
-
-PhonebookForm.propTypes = {
-    onSubmit: PropTypes.func
-    }

@@ -1,6 +1,7 @@
-import PropTypes from "prop-types"
+
 import s from "./Input.module.css"
-export const PhoneInput = ({name, value ,func}) => {
+import React from "react"
+export const PhoneInput = ({name, value ,func}: {name: string, value:string, func: React.ChangeEventHandler<HTMLInputElement>}) => {
     return <label className={s.label}>Phone<input className={s.input}
   type="tel"
   name={name}
@@ -11,11 +12,4 @@ export const PhoneInput = ({name, value ,func}) => {
   required
 />
 </label>
-}
-
-
-PhoneInput.propTypes = {
-    name:  PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    func: PropTypes.func.isRequired
 }
